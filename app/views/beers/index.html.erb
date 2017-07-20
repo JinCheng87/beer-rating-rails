@@ -1,0 +1,12 @@
+<h1>Beers</h1>
+<%= link_to 'create a beer', new_beer_path %>
+<br>
+<% if beers.any? %>
+  <% beers.each_with_index do |beer, index| %>
+
+    <%= index + 1 %>. <%= link_to beer.name, beer_path(beer) %>
+    <br>
+  <% end %>
+<% else %>
+    <h3>There's no beer yet, create one first.</h3>
+<% end %>

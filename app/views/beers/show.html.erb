@@ -1,0 +1,9 @@
+<h1><%= beer.name %></h1>
+<%= link_to 'back', beers_path %>
+
+<%= link_to 'edit', edit_beer_path %>
+
+<%= link_to 'delete', beer, method: :delete, data: {confirm: 'sure?'} %>
+<p><%= beer.description %></p>
+
+<%= link_to 'rate it', new_beer_rating_path(beer) %>
