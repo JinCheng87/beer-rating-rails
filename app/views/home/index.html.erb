@@ -1,1 +1,23 @@
 <h1>welcome</h1>
+<% if ratings.any? %>
+  <h3>your recently ratings: </h3>
+  <table>
+    <tr>
+      <th>Beer</th>
+      <th>Stars</th>
+      <th>Comment</th>
+    </tr>
+    <% ratings.each_with_index do |rating| %>
+    <tr>
+      <td><%= Beer.find(rating.beer_id).name %></td>
+      <td><%= rating.stars %></td>
+      <td><%= rating.comment %></td>
+      <td><%= button_to ('view'), beer_rating_path(Beer.find(rating.beer_id),rating), method: :'get' %></td>
+    </tr>
+  <% end %>
+    </table> 
+  <% else %>
+  <h3>You haven't rate any beer yet.</h3>
+<% end %>
+
+<%= button_to ('view all beers'), beers_path, method: :'get' %>

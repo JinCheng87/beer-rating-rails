@@ -1,10 +1,10 @@
-<%= form_for(beer) do |f| %>
-  <% if beer.errors.any? %>
+<%= form_for([beer,rating]) do |f| %>
+  <% if rating.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(beer.errors.count, "error") %> prohibited this beer from being saved:</h2>
+      <h2><%= pluralize(rating.errors.count, "error") %> prohibited this rating from being saved:</h2>
 
       <ul>
-      <% beer.errors.full_messages.each do |message| %>
+      <% rating.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -13,11 +13,11 @@
 
   <div>
     <%= f.label :stars %>
-    <%= f.number :stars %>
+    <%= f.number_field 'stars', min:1, max: 5 %>
   </div>
   <div>
     <%= f.label :comment %>
-    <%= f.text :comment %>
+    <%= f.text_area :comment %>
   </div>
   <div class="action">
     <%= f.submit %>

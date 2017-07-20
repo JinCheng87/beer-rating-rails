@@ -1,0 +1,6 @@
+<h1>rating from <%= user_name %></h1>
+<h3>stars: <%= rating.stars %></h3>
+<h3>comment: <%= rating.comment %></h3>
+<%= link_to 'edit', edit_beer_rating_path(beer,rating) %>
+<%= link_to 'delete', beer_rating_path(beer,rating), method: :delete, data: { confirm: 'sure?'} %>
+<%= link_to "go back to ratings for #{beer.name}", beer_ratings_path(beer) %>

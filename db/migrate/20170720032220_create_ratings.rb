@@ -4,6 +4,7 @@ class CreateRatings < ActiveRecord::Migration[5.0]
       t.integer :stars, null:false
       t.text :comment, null:false
       t.timestamps
+      
     end
   end
 end
